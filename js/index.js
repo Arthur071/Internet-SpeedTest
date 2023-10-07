@@ -18,7 +18,7 @@ let imageApi = "https://source.unsplash.com/random?topic=nature";
 image.onload = async function () {
     endTime = new Date().getTime();
 
-    
+
     await fetch(imageApi).then((response) => {
         imageSize = response.headers.get("content-length");
         calculateSpeed();
@@ -29,7 +29,7 @@ image.onload = async function () {
 function calculateSpeed() {
 
     let timeDuration = (endTime - startTime) / 1000;
- 
+
     let loadedBits = imageSize * 8;
     let speedInBts = loadedBits / timeDuration;
     let speedInKbs = speedInBts / 1024;
@@ -53,7 +53,7 @@ function calculateSpeed() {
         mbSpeed.innerHTML += `${averageSpeedInMbps}`;
         info.innerHTML = "Test Completed!";
     } else {
-   
+
         startTime = new Date().getTime();
         image.src = imageApi;
     }
